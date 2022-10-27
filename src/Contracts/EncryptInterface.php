@@ -8,10 +8,7 @@ use Zaphyr\Encrypt\Exceptions\DecryptException;
 use Zaphyr\Encrypt\Exceptions\EncryptException;
 
 /**
- * Interface EncryptInterface
- *
- * @package Zaphyr\Encrypt\Contracts
- * @author  merloxx <merloxx@zaphyr.org>
+ * @author merloxx <merloxx@zaphyr.org>
  */
 interface EncryptInterface
 {

@@ -10,10 +10,7 @@ use Zaphyr\Encrypt\Exceptions\DecryptException;
 use Zaphyr\Encrypt\Exceptions\EncryptException;
 
 /**
- * Class Encrypt
- *
- * @package Zaphyr\Encrypt
- * @author  merloxx <merloxx@zaphyr.org>
+ * @author merloxx <merloxx@zaphyr.org>
  */
 class Encrypt implements EncryptInterface
 {
