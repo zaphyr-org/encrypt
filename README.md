@@ -1,6 +1,6 @@
 ![License](https://img.shields.io/github/license/zaphyr-org/encrypt?style=for-the-badge)
 ![Version](https://img.shields.io/packagist/v/zaphyr-org/encrypt?style=for-the-badge)
-![Dowloads](https://img.shields.io/packagist/dt/zaphyr-org/encrypt?style=for-the-badge)
+![Downloads](https://img.shields.io/packagist/dt/zaphyr-org/encrypt?style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/zaphyr-org/encrypt?style=for-the-badge)
 ![Issues](https://img.shields.io/github/issues/zaphyr-org/encrypt?style=for-the-badge)
 
@@ -43,4 +43,4 @@ Please see [CODE OF CONDUCT](https://zaphyr.org/docs/1.x/repositories/contributi
 
 ## License
 
-This project ist licensed under the MIT license. See [LICENSE](LICENSE.md) for more information.
+This project is licensed under the MIT license. See [LICENSE](LICENSE.md) for more information.
