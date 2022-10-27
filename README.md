@@ -6,8 +6,7 @@
 
 # ENCRYPT
 
-This repository contains a simple interface for encrypting and decrypting text via OpenSSL using AES-256 and
-AES-128 encryption.
+A convenient interface for encrypting and decrypting text via OpenSSL using AES-128 and AES-256 encryption.
 
 ## System Requirements
 
@@ -23,11 +22,11 @@ composer require zaphyr-org/encrypt
 
 ## Documentation
 
-You can read the full documentation [here](docs/index.md).
+You can read the full documentation [here](https://zaphyr.org/docs/1.x/repositories/encrypt).
 
 ## Issues
 
-Bug reports and feature requests can be submitted on the [Github Issue Tracker](https://github.com/zaphyr-org/encrypt/issues).
+Bug reports and feature requests can be submitted on the [GitHub Issue Tracker](https://github.com/zaphyr-org/encrypt/issues).
 
 ## Security
 
@@ -36,11 +35,11 @@ the issue tracker!**
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://zaphyr.org/docs/1.x/repositories/contributions) for details.
 
 ## Code of Conduct
 
-Please see [CODE OF CONDUCT](CODE_OF_CONDUCT.md) for details.
+Please see [CODE OF CONDUCT](https://zaphyr.org/docs/1.x/repositories/contributions#content-code-of-conduct) for details.
 
 ## License
 

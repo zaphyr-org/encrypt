@@ -1,6 +1,6 @@
 {
     "name": "zaphyr-org/encrypt",
-    "description": "Simple interface for encrypting and decrypting text via OpenSSL using AES-256 and AES-128 encryption.",
+    "description": "A convenient interface for encrypting and decrypting text via OpenSSL using AES-128 and AES-256 encryption.",
     "keywords": [
         "encrypt",
         "opensll",
