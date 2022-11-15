@@ -10,3 +10,7 @@ parameters:
         - tests/report/*
         - tests/TestAsset/*
         - tests/Integration/TestAsset/*
+    ignoreErrors:
+        -
+            message: '%Parameter #1 \$length of function random_bytes expects int<1, max>, int given.%'
+            path: src/Encrypt.php
