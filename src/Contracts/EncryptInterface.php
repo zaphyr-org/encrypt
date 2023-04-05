@@ -16,18 +16,16 @@ interface EncryptInterface
      * @param mixed $value
      * @param bool  $serialize
      *
-     * @return mixed
-     *
-     * @throws EncryptException
+     * @throws EncryptException If the data could not be encrypted.
+     * @return string
      */
-    public function encrypt($value, bool $serialize = true);
+    public function encrypt(mixed $value, bool $serialize = true): string;
 
     /**
      * @param string $value
      *
+     * @throws EncryptException If the data could not be encrypted.
      * @return string
-     *
-     * @throws EncryptException
      */
     public function encryptString(string $value): string;
 
@@ -35,18 +33,16 @@ interface EncryptInterface
      * @param mixed $payload
      * @param bool  $unserialize
      *
+     * @throws DecryptException If the data could not be decrypted.
      * @return mixed
-     *
-     * @throws DecryptException
      */
-    public function decrypt($payload, bool $unserialize = true);
+    public function decrypt(mixed $payload, bool $unserialize = true): mixed;
 
     /**
      * @param string $payload
      *
+     * @throws DecryptException If the data could not be decrypted.
      * @return string
-     *
-     * @throws DecryptException
      */
     public function decryptString(string $payload): string;
 }

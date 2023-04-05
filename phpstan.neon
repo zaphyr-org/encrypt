@@ -1,5 +1,5 @@
 parameters:
-    phpVersion: 70200
+    phpVersion: 80100
     level: 8
     paths:
         - src
@@ -12,5 +12,5 @@ parameters:
         - tests/Integration/TestAsset/*
     ignoreErrors:
         -
-            message: '%Parameter #1 \$length of function random_bytes expects int<1, max>, int given.%'
+            message: '%Parameter #1 \$length of function random_bytes expects int<1, max>, int\|false given.%'
             path: src/Encrypt.php

@@ -56,8 +56,8 @@ class EncryptTest extends TestCase
         $encrypt = new Encrypt(str_repeat('a', 16));
         $encrypted = $encrypt->encrypt($expected = 'foo');
 
-        self::assertNotEquals($expected, $encrypted);
-        self::assertEquals($expected, $encrypt->decrypt($encrypted));
+        self::assertNotSame($expected, $encrypted);
+        self::assertSame($expected, $encrypt->decrypt($encrypted));
     }
 
     public function testEncryptString(): void
@@ -65,8 +65,8 @@ class EncryptTest extends TestCase
         $encrypt = new Encrypt(str_repeat('a', 16));
         $encrypted = $encrypt->encryptString($expected = 'foo');
 
-        self::assertNotEquals($expected, $encrypted);
-        self::assertEquals($expected, $encrypt->decryptString($encrypted));
+        self::assertNotSame($expected, $encrypted);
+        self::assertSame($expected, $encrypt->decryptString($encrypted));
     }
 
     public function testEncryptUsingBase64EncodedKey(): void
@@ -74,8 +74,8 @@ class EncryptTest extends TestCase
         $encrypt = new Encrypt(random_bytes(16));
         $encrypted = $encrypt->encrypt($expected = 'foo');
 
-        self::assertNotEquals($expected, $encrypted);
-        self::assertEquals($expected, $encrypt->decrypt($encrypted));
+        self::assertNotSame($expected, $encrypted);
+        self::assertSame($expected, $encrypt->decrypt($encrypted));
     }
 
     public function testEncryptWithCustomCipher(): void
@@ -83,8 +83,8 @@ class EncryptTest extends TestCase
         $encrypt = new Encrypt(str_repeat('b', 32), 'AES-256-CBC');
         $encrypted = $encrypt->encrypt($expected = 'foo');
 
-        self::assertNotEquals($expected, $encrypted);
-        self::assertEquals($expected, $encrypt->decrypt($encrypted));
+        self::assertNotSame($expected, $encrypted);
+        self::assertSame($expected, $encrypt->decrypt($encrypted));
     }
 
     public function testEncryptWithCustomCipherAndBase64EncodedKey(): void
@@ -92,8 +92,8 @@ class EncryptTest extends TestCase
         $encrypt = new Encrypt(random_bytes(32), 'AES-256-CBC');
         $encrypted = $encrypt->encrypt($expected = 'foo');
 
-        self::assertNotEquals($expected, $encrypted);
-        self::assertEquals($expected, $encrypt->decrypt($encrypted));
+        self::assertNotSame($expected, $encrypted);
+        self::assertSame($expected, $encrypt->decrypt($encrypted));
     }
 
     /**

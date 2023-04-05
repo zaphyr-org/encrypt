@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Zaphyr\Encrypt;
 
-use Exception;
 use Zaphyr\Encrypt\Contracts\EncryptInterface;
 use Zaphyr\Encrypt\Exceptions\DecryptException;
 use Zaphyr\Encrypt\Exceptions\EncryptException;
@@ -17,12 +16,12 @@ class Encrypt implements EncryptInterface
     /**
      * @var string
      */
-    protected $key;
+    protected string $key;
 
     /**
      * @var string
      */
-    protected $cipher;
+    protected string $cipher;
 
     /**
      * @param string $key
@@ -43,40 +42,12 @@ class Encrypt implements EncryptInterface
     }
 
     /**
-     * @param string $key
-     * @param string $cipher
-     *
-     * @return bool
-     */
-    protected function validKeyAndCipher(string $key, string $cipher): bool
-    {
-        $length = mb_strlen($key, '8bit');
-
-        return ($cipher === 'AES-128-CBC' && $length === 16) || ($cipher === 'AES-256-CBC' && $length === 32);
-    }
-
-    /**
      * {@inheritdoc}
-     *
-     * @throws Exception
      */
-    public function encrypt($value, bool $serialize = true)
+    public function encrypt(mixed $value, bool $serialize = true): string
     {
-        $length = openssl_cipher_iv_length($this->cipher);
-
-        if (!is_int($length)) {
-            throw new EncryptException('Could not encrypt the data');
-        }
-
-        $iv = random_bytes($length);
-
-        $value = openssl_encrypt(
-            $serialize ? serialize($value) : $value,
-            $this->cipher,
-            $this->key,
-            0,
-            $iv
-        );
+        $iv = random_bytes(openssl_cipher_iv_length($this->cipher));
+        $value = openssl_encrypt($serialize ? serialize($value) : $value, $this->cipher, $this->key, 0, $iv);
 
         if (!$value) {
             throw new EncryptException('Could not encrypt the data');
@@ -94,8 +65,6 @@ class Encrypt implements EncryptInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @throws Exception
      */
     public function encryptString(string $value): string
     {
@@ -103,33 +72,13 @@ class Encrypt implements EncryptInterface
     }
 
     /**
-     * @param string $iv
-     * @param mixed  $value
-     *
-     * @return string
-     */
-    protected function hash(string $iv, $value): string
-    {
-        return hash_hmac('sha256', $iv . $value, $this->key);
-    }
-
-    /**
      * {@inheritdoc}
-     *
-     * @throws Exception
      */
-    public function decrypt($payload, bool $unserialize = true)
+    public function decrypt(mixed $payload, bool $unserialize = true): mixed
     {
         $payload = $this->getJsonPayload($payload);
         $iv = base64_decode($payload['iv']);
-
-        $decrypted = openssl_decrypt(
-            $payload['value'],
-            $this->cipher,
-            $this->key,
-            0,
-            $iv
-        );
+        $decrypted = openssl_decrypt($payload['value'], $this->cipher, $this->key, 0, $iv);
 
         if (!$decrypted) {
             throw new DecryptException('Could not decrypt data');
@@ -140,8 +89,6 @@ class Encrypt implements EncryptInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @throws Exception
      */
     public function decryptString(string $payload): string
     {
@@ -149,14 +96,36 @@ class Encrypt implements EncryptInterface
     }
 
     /**
+     * @param string $key
+     * @param string $cipher
+     *
+     * @return bool
+     */
+    protected function validKeyAndCipher(string $key, string $cipher): bool
+    {
+        $length = mb_strlen($key, '8bit');
+
+        return ($cipher === 'AES-128-CBC' && $length === 16) || ($cipher === 'AES-256-CBC' && $length === 32);
+    }
+
+    /**
+     * @param string $iv
+     * @param mixed  $value
+     *
+     * @return string
+     */
+    protected function hash(string $iv, mixed $value): string
+    {
+        return hash_hmac('sha256', $iv . $value, $this->key);
+    }
+
+    /**
      * @param mixed $payload
      *
-     * @return array<string, mixed>
-     *
-     * @throws Exception
      * @throws DecryptException
+     * @return array<string, mixed>
      */
-    protected function getJsonPayload($payload): array
+    protected function getJsonPayload(mixed $payload): array
     {
         $payload = json_decode(base64_decode($payload), true);
 
@@ -176,7 +145,7 @@ class Encrypt implements EncryptInterface
      *
      * @return bool
      */
-    protected function validPayload($payload): bool
+    protected function validPayload(mixed $payload): bool
     {
         return is_array($payload) && isset($payload['iv'], $payload['value'], $payload['mac']) &&
             strlen((string)base64_decode($payload['iv'], true)) === openssl_cipher_iv_length($this->cipher);
@@ -186,27 +155,9 @@ class Encrypt implements EncryptInterface
      * @param array<string, mixed> $payload
      *
      * @return bool
-     *
-     * @throws Exception
      */
     protected function validMac(array $payload): bool
     {
-        $calculated = $this->calculateMac($payload, $bytes = random_bytes(16));
-
-        return hash_equals(
-            hash_hmac('sha256', $payload['mac'], $bytes, true),
-            $calculated
-        );
-    }
-
-    /**
-     * @param array<string, mixed> $payload
-     * @param string               $bytes
-     *
-     * @return string
-     */
-    protected function calculateMac(array $payload, string $bytes): string
-    {
-        return hash_hmac('sha256', $this->hash($payload['iv'], $payload['value']), $bytes, true);
+        return hash_equals($this->hash($payload['iv'], $payload['value']), $payload['mac']);
     }
 }
