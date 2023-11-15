@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php" cacheDirectory=".phpunit.cache" colors="true">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory suffix=".php">./src</directory>
+        </include>
+    </source>
+    <coverage>
+        <report>
+            <html outputDirectory="./tests/report/code-coverage" lowUpperBound="50" highLowerBound="80"/>
+        </report>
+    </coverage>
+    <logging>
+        <testdoxHtml outputFile="./tests/report/testdox.html"/>
+    </logging>
+</phpunit>

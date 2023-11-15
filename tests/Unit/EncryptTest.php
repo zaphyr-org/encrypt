@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zaphyr\EncryptTests;
+namespace Zaphyr\EncryptTests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Zaphyr\Encrypt\Encrypt;
