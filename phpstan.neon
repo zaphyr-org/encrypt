@@ -3,13 +3,8 @@ parameters:
     level: 8
     paths:
         - src
-        - tests
     parallel:
         maximumNumberOfProcesses: 1
-    excludePaths:
-        - tests/report/*
-        - tests/TestAsset/*
-        - tests/Integration/TestAsset/*
     ignoreErrors:
         -
             message: '%Parameter #1 \$length of function random_bytes expects int<1, max>, int\|false given.%'
