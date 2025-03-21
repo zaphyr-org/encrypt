@@ -22,11 +22,12 @@ composer require zaphyr-org/encrypt
 
 ## Documentation
 
-You can read the full documentation [here](https://zaphyr.org/docs/2.x/repositories/encrypt).
+You can read the full documentation [here](https://zaphyr.org/docs/repositories/latest/encrypt).
 
 ## Issues
 
-Bug reports and feature requests can be submitted on the [GitHub Issue Tracker](https://github.com/zaphyr-org/encrypt/issues).
+Bug reports and feature requests can be submitted on
+the [GitHub Issue Tracker](https://github.com/zaphyr-org/encrypt/issues).
 
 ## Security
 
