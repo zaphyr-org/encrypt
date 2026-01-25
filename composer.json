@@ -3,7 +3,7 @@
     "description": "A convenient interface for encrypting and decrypting text via OpenSSL using AES-128 and AES-256 encryption.",
     "keywords": [
         "encrypt",
-        "opensll",
+        "openssl",
         "security"
     ],
     "license": "MIT",

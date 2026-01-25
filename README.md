@@ -1,8 +1,8 @@
-![License](https://img.shields.io/github/license/zaphyr-org/encrypt?style=for-the-badge)
-![Version](https://img.shields.io/packagist/v/zaphyr-org/encrypt?style=for-the-badge)
-![Downloads](https://img.shields.io/packagist/dt/zaphyr-org/encrypt?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/zaphyr-org/encrypt?style=for-the-badge)
-![Issues](https://img.shields.io/github/issues/zaphyr-org/encrypt?style=for-the-badge)
+![License](https://img.shields.io/github/license/zaphyr-org/encrypt)
+![Version](https://img.shields.io/packagist/v/zaphyr-org/encrypt)
+![Issues](https://img.shields.io/github/issues/zaphyr-org/encrypt)
+![Tests](https://github.com/zaphyr-org/encrypt/actions/workflows/tests.yml/badge.svg)
+[![Codecov](https://codecov.io/github/zaphyr-org/encrypt/graph/badge.svg?token=5E0SGGRJK7&)](https://codecov.io/github/zaphyr-org/encrypt)
 
 # ENCRYPT
 
@@ -10,7 +10,15 @@ A convenient interface for encrypting and decrypting text via OpenSSL using AES-
 
 ## System Requirements
 
-You need `PHP => 8.1.0` but the latest stable version of PHP is recommended.
+You need `PHP => 8.1` but the latest stable version of PHP is recommended.
+
+This package is continuously tested on the following PHP versions:
+
+- PHP 8.1
+- PHP 8.2
+- PHP 8.3
+- PHP 8.4
+- PHP 8.5
 
 ## Installation
 
