@@ -2,7 +2,7 @@
 ![Version](https://img.shields.io/packagist/v/zaphyr-org/encrypt)
 ![Issues](https://img.shields.io/github/issues/zaphyr-org/encrypt)
 ![Tests](https://github.com/zaphyr-org/encrypt/actions/workflows/tests.yml/badge.svg)
-[![Codecov](https://codecov.io/github/zaphyr-org/encrypt/graph/badge.svg?token=5E0SGGRJK7&)](https://codecov.io/github/zaphyr-org/encrypt)
+[![Codecov](https://codecov.io/gh/zaphyr-org/encrypt/graph/badge.svg?token=2STP40KC71)](https://codecov.io/gh/zaphyr-org/encrypt)
 
 # ENCRYPT
 
